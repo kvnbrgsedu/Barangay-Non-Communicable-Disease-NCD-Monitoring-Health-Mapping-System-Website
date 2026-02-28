@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analytics Dashboard | Barangay NCD Monitoring</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="page-dashboard">
+  <header class="main-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-logo">NCD</span>
+        <div class="brand-text">
+          <span class="brand-title">Analytics Dashboard</span>
+          <span class="brand-subtitle">Barangay NCD Insights</span>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="map.html">Map</a></li>
+          <li><a href="dashboard.html" class="active">Dashboard</a></li>
+          <li><a href="about.html">About NCDs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html" class="btn-nav">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <section class="section dashboard-hero">
+      <div class="container">
+        <header class="section-header">
+          <h1>Barangay NCD Analytics</h1>
+          <p>
+            Explore cases, distributions, and trends to support data-driven
+            health planning at the barangay level.
+          </p>
+        </header>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- Summary Cards -->
+        <div class="summary-grid">
+          <article class="summary-card">
+            <h2>Total NCD Cases</h2>
+            <p class="summary-number" data-counter="248">248</p>
+            <p class="summary-label">All recorded NCD cases</p>
+          </article>
+
+          <article class="summary-card">
+            <h2>Most Common Disease</h2>
+            <p class="summary-pill pill-red">Hypertension</p>
+            <p class="summary-label">Based on total recorded cases</p>
+          </article>
+
+          <article class="summary-card">
+            <h2>High-Risk Households</h2>
+            <p class="summary-number" data-counter="37">37</p>
+            <p class="summary-label">Households with multiple NCD cases</p>
+          </article>
+
+          <article class="summary-card">
+            <h2>Monthly Increase</h2>
+            <p class="summary-number" data-counter="8">8%</p>
+            <p class="summary-label">Change compared to last month</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container chart-grid">
+        <!-- Bar Chart -->
+        <article class="chart-card">
+          <header class="chart-header">
+            <h2>Cases per Disease</h2>
+          </header>
+          <div class="chart-body">
+            <canvas id="barChartCases"></canvas>
+          </div>
+        </article>
+
+        <!-- Pie Chart -->
+        <article class="chart-card">
+          <header class="chart-header">
+            <h2>Percentage Distribution</h2>
+          </header>
+          <div class="chart-body">
+            <canvas id="pieChartDistribution"></canvas>
+          </div>
+        </article>
+
+        <!-- Line Chart -->
+        <article class="chart-card chart-card-wide">
+          <header class="chart-header">
+            <h2>Trend Over Time</h2>
+          </header>
+          <div class="chart-body">
+            <canvas id="lineChartTrend"></canvas>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p class="footer-title">Barangay NCD Monitoring &amp; Health Mapping System</p>
+        <p class="footer-subtitle">
+          Analytics view for non-communicable disease trends and planning.
+        </p>
+      </div>
+      <div class="footer-right">
+        <a href="map.html">Map</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Barangay NCD System.</p>
+    </div>
+  </footer>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Main & Dashboard Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+
+</html>
+

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Health Map | Barangay NCD Monitoring</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body class="page-map">
+  <header class="main-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-logo">NCD</span>
+        <div class="brand-text">
+          <span class="brand-title">Health Map</span>
+          <span class="brand-subtitle">Barangay Monitoring</span>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="map.html" class="active">Map</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="about.html">About NCDs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html" class="btn-nav">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="map-main">
+    <section class="section map-hero">
+      <div class="container">
+        <header class="section-header">
+          <h1>Barangay Health Map</h1>
+          <p>
+            Visualize non-communicable disease cases at the household level
+            to support targeted interventions.
+          </p>
+        </header>
+      </div>
+    </section>
+
+    <section class="section map-layout">
+      <div class="container map-container">
+        <!-- Map Controls / Sidebar -->
+        <aside class="map-sidebar" aria-label="Map filters and legend">
+          <div class="map-panel">
+            <h2>Filters</h2>
+            <p class="panel-subtitle">Filter markers by disease type.</p>
+            <div class="filter-group">
+              <button class="filter-chip active" data-filter="all">
+                All Cases
+              </button>
+              <button class="filter-chip filter-hypertension" data-filter="hypertension">
+                Hypertension
+              </button>
+              <button class="filter-chip filter-diabetes" data-filter="diabetes">
+                Diabetes
+              </button>
+              <button class="filter-chip filter-cvd" data-filter="cardiovascular">
+                Cardiovascular
+              </button>
+            </div>
+          </div>
+
+          <div class="map-panel">
+            <h2>Search Location</h2>
+            <p class="panel-subtitle">
+              Search by household label or street.
+            </p>
+            <div class="search-group">
+              <input type="text" id="map-search-input" placeholder="e.g. Purok 3, House 12" autocomplete="off" />
+              <button id="map-search-btn" class="btn-primary btn-small">
+                Search
+              </button>
+            </div>
+            <p id="map-search-feedback" class="search-feedback" aria-live="polite"></p>
+          </div>
+
+          <div class="map-panel">
+            <h2>Legend</h2>
+            <ul class="legend-list">
+              <li>
+                <span class="dot dot-red"></span>
+                Hypertension
+              </li>
+              <li>
+                <span class="dot dot-orange"></span>
+                Diabetes
+              </li>
+              <li>
+                <span class="dot dot-yellow"></span>
+                Other NCDs / Cardiovascular
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- Map Wrapper -->
+        <section class="map-wrapper" aria-label="Interactive barangay map">
+          <div id="health-map"></div>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p class="footer-title">Barangay NCD Monitoring &amp; Health Mapping System</p>
+        <p class="footer-subtitle">
+          Map view for non-communicable disease monitoring and response.
+        </p>
+      </div>
+      <div class="footer-right">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Barangay NCD System.</p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Main Script & Map Script -->
+  <script src="js/main.js"></script>
+  <script src="js/map.js"></script>
+</body>
+
+</html>
+

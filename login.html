@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Barangay NCD Monitoring</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+$body class="page-auth">
+  <main class="auth-main">
+    <div class="auth-bg-shape auth-bg-1"></div>
+    <div class="auth-bg-shape auth-bg-2"></div>
+
+    <section class="auth-card" aria-label="Login form">
+      <div class="auth-header">
+        <span class="brand-logo">NCD</span>
+        <h1>Health Worker Login</h1>
+        <p>Secure access for barangay health staff and authorized users.</p>
+      </div>
+
+      <form id="login-form" class="auth-form" novalidate>
+        <div class="form-group">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" name="email" required />
+          <span class="form-error" data-for="login-email"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" name="password" required />
+          <span class="form-error" data-for="login-password"></span>
+        </div>
+
+        <button type="submit" class="btn-primary full-width" id="login-submit">
+          <span class="btn-text">Login</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+
+        <p id="login-feedback" class="form-feedback" aria-live="polite"></p>
+
+        <div class="auth-links">
+          <a href="#" id="forgot-password-link">Forgot password?</a>
+          <span>•</span>
+          <a href="#" id="register-link">Create an account</a>
+        </div>
+      </form>
+
+      <!-- Hidden Registration Form Placeholder (can be expanded later) -->
+      <form id="register-form" class="auth-form auth-form-secondary" hidden novalidate>
+        <h2>Create Account</h2>
+        <div class="form-group">
+          <label for="register-email">Email Address</label>
+          <input type="email" id="register-email" name="email" />
+          <span class="form-error" data-for="register-email"></span>
+        </div>
+        <div class="form-group">
+          <label for="register-password">Password</label>
+          <input type="password" id="register-password" name="password" />
+          <span class="form-error" data-for="register-password"></span>
+        </div>
+        <button type="submit" class="btn-outline full-width" id="register-submit">
+          Register
+        </button>
+        <p id="register-feedback" class="form-feedback" aria-live="polite"></p>
+      </form>
+
+      <!-- Forgot Password Placeholder -->
+      <form id="forgot-form" class="auth-form auth-form-secondary" hidden novalidate>
+        <h2>Reset Password</h2>
+        <div class="form-group">
+          <label for="forgot-email">Email Address</label>
+          <input type="email" id="forgot-email" name="email" />
+          <span class="form-error" data-for="forgot-email"></span>
+        </div>
+        <button type="submit" class="btn-outline full-width" id="forgot-submit">
+          Send Reset Link
+        </button>
+        <p id="forgot-feedback" class="form-feedback" aria-live="polite"></p>
+      </form>
+
+      <div class="auth-footer-links">
+        <a href="index.html">Back to Home</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Firebase (placeholder - add your config in js/firebase-config.js) -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+  <!-- Main & Auth Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+
+</html>
+

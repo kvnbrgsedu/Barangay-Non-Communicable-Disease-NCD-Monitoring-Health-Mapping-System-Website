@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barangay NCD Monitoring &amp; Health Mapping System</title>
+  <meta name="description"
+    content="Barangay Non-Communicable Disease Monitoring &amp; Health Mapping System – data-driven health insights for a stronger community." />
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- Loading Screen -->
+  <div id="preloader">
+    <div class="preloader-spinner"></div>
+    <p class="preloader-text">Loading Barangay NCD System...</p>
+  </div>
+
+  <!-- Floating Background Shapes -->
+  <div class="bg-shape bg-shape-1"></div>
+  <div class="bg-shape bg-shape-2"></div>
+  <div class="bg-shape bg-shape-3"></div>
+
+  <!-- Header / Navigation -->
+  <header class="main-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-logo">NCD</span>
+        <div class="brand-text">
+          <span class="brand-title">Barangay NCD System</span>
+          <span class="brand-subtitle">Monitoring &amp; Health Mapping</span>
+        </div>
+      </div>
+
+      <nav class="main-nav" aria-label="Primary navigation">
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="map.html">Map</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="about.html">About NCDs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="login.html" class="btn-nav">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+        <div class="hero-content" data-animate="fade-up">
+          <p class="eyebrow">Data-Driven Barangay Health</p>
+          <h1>Barangay NCD Monitoring &amp; Health Mapping System</h1>
+          <p class="hero-subtitle">
+            Track non-communicable diseases, visualize community health
+            risks, and support faster decision-making for a stronger,
+            healthier barangay.
+          </p>
+          <div class="hero-actions">
+            <a href="map.html" class="btn-primary">View Health Map</a>
+            <a href="dashboard.html" class="btn-outline">View Analytics</a>
+          </div>
+          <div class="hero-meta">
+            <span class="meta-pill">Real-time insights</span>
+            <span class="meta-pill">Barangay-level monitoring</span>
+            <span class="meta-pill">Community-focused</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" data-animate="fade-in">
+          <div class="hero-card hero-card-main">
+            <h3>Today&apos;s Health Snapshot</h3>
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-label">Total NCD Cases</span>
+                <span class="stat-value">248</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">High-Risk Households</span>
+                <span class="stat-value">37</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Most Common</span>
+                <span class="stat-pill pill-red">Hypertension</span>
+              </div>
+            </div>
+            <div class="mini-legend">
+              <span class="dot dot-red"></span> Hypertension
+              <span class="dot dot-orange"></span> Diabetes
+              <span class="dot dot-yellow"></span> Other NCDs
+            </div>
+          </div>
+          <div class="hero-card hero-card-secondary">
+            <p>Secure, barangay-based monitoring to guide health workers,
+              local officials, and the community.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brief Description / Features -->
+    <section class="section" id="overview">
+      <div class="container">
+        <header class="section-header" data-animate="fade-up">
+          <h2>What This System Does</h2>
+          <p>
+            A dedicated platform for barangay leaders, health workers, and
+            planners to monitor non-communicable diseases and respond
+            effectively.
+          </p>
+        </header>
+
+        <div class="feature-grid">
+          <article class="feature-card" data-animate="lift">
+            <div class="feature-icon">
+              <span class="icon-circle icon-circle-red"></span>
+            </div>
+            <h3>Real-Time Monitoring</h3>
+            <p>
+              Keep track of NCD cases per household and zone, updated by
+              accredited barangay health workers.
+            </p>
+          </article>
+
+          <article class="feature-card" data-animate="lift">
+            <div class="feature-icon">
+              <span class="icon-circle icon-circle-orange"></span>
+            </div>
+            <h3>Data Visualization</h3>
+            <p>
+              Interactive maps and dashboards show disease clusters, case
+              trends, and high-risk areas at a glance.
+            </p>
+          </article>
+
+          <article class="feature-card" data-animate="lift">
+            <div class="feature-icon">
+              <span class="icon-circle icon-circle-yellow"></span>
+            </div>
+            <h3>Community Health Awareness</h3>
+            <p>
+              Provide residents and leaders with clear, accessible
+              information on NCDs and prevention strategies.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Importance of Health Mapping -->
+    <section class="section section-alt" id="importance">
+      <div class="container split-layout">
+        <div class="split-text" data-animate="fade-right">
+          <h2>Why Health Mapping Matters</h2>
+          <p>
+            Health mapping transforms raw data into clear visuals that help
+            stakeholders see where support is most needed.
+          </p>
+          <ul class="bullet-list">
+            <li>
+              <strong>Identify Disease Clusters</strong> – visualize areas
+              with concentrated NCD cases.
+            </li>
+            <li>
+              <strong>Support Faster Response</strong> – enable barangay
+              officials to mobilize resources quickly.
+            </li>
+            <li>
+              <strong>Guide Health Planning</strong> – inform targeted
+              programs, education, and outreach activities.
+            </li>
+          </ul>
+        </div>
+        <div class="split-visual" data-animate="fade-left">
+          <div class="map-illustration">
+            <div class="map-legend">
+              <span class="dot dot-red"></span> Hypertension Cluster<br />
+              <span class="dot dot-orange"></span> Diabetes Cluster<br />
+              <span class="dot dot-yellow"></span> Other NCDs
+            </div>
+            <div class="mini-map-grid">
+              <span class="mini-marker mini-marker-red"></span>
+              <span class="mini-marker mini-marker-orange"></span>
+              <span class="mini-marker mini-marker-yellow"></span>
+              <span class="mini-marker mini-marker-red"></span>
+              <span class="mini-marker mini-marker-orange"></span>
+              <span class="mini-marker mini-marker-yellow"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Navigation Section -->
+    <section class="section" id="quick-nav">
+      <div class="container">
+        <header class="section-header" data-animate="fade-up">
+          <h2>Quick Access</h2>
+          <p>Jump directly to the tools and information you need.</p>
+        </header>
+        <div class="quick-nav-grid">
+          <a href="map.html" class="quick-nav-card" data-animate="lift">
+            <div class="quick-nav-icon">
+              <span class="icon-circle icon-circle-red"></span>
+            </div>
+            <h3>Health Map</h3>
+            <p>View barangay NCD cases plotted per household.</p>
+          </a>
+
+          <a href="dashboard.html" class="quick-nav-card" data-animate="lift">
+            <div class="quick-nav-icon">
+              <span class="icon-circle icon-circle-orange"></span>
+            </div>
+            <h3>Analytics</h3>
+            <p>See trends, distributions, and key indicators.</p>
+          </a>
+
+          <a href="about.html" class="quick-nav-card" data-animate="lift">
+            <div class="quick-nav-icon">
+              <span class="icon-circle icon-circle-yellow"></span>
+            </div>
+            <h3>About NCDs</h3>
+            <p>Learn more about non-communicable diseases.</p>
+          </a>
+
+          <a href="contact.html" class="quick-nav-card" data-animate="lift">
+            <div class="quick-nav-icon">
+              <span class="icon-circle icon-circle-red"></span>
+            </div>
+            <h3>Health Support</h3>
+            <p>Reach barangay health workers and officials.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section cta-section">
+      <div class="container cta-inner" data-animate="fade-up">
+        <div class="cta-text">
+          <h2>Powering Smarter Barangay Health Decisions</h2>
+          <p>
+            Use this system to guide outreach, prioritize high-risk
+            households, and build a healthier community together.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a href="login.html" class="btn-primary">Login as Health Worker</a>
+          <a href="about.html" class="btn-outline">Learn About NCDs</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p class="footer-title">Barangay NCD Monitoring &amp; Health Mapping System</p>
+        <p class="footer-subtitle">
+          A research-based system for non-communicable disease monitoring and
+          community health planning.
+        </p>
+      </div>
+      <div class="footer-right">
+        <a href="about.html">About NCDs</a>
+        <a href="contact.html">Contact &amp; Support</a>
+        <a href="login.html">Staff Login</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span id="year"></span> Barangay NCD System. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Main Script -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
+
