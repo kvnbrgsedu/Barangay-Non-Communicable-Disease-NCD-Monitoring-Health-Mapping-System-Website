@@ -780,10 +780,32 @@ button {
   gap: 1.5rem;
 }
 
+.map-sidebar-slot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .map-sidebar {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+/* When add-household modal is open: hide sidebar, show modal in same slot */
+.page-map.adding-household .map-sidebar {
+  display: none;
+}
+
+.modal-panel {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.page-map.adding-household .modal-panel {
+  display: flex;
 }
 
 .map-panel {
@@ -862,6 +884,9 @@ button {
 }
 
 .map-wrapper {
+  position: relative;
+  z-index: 0;
+  isolation: isolate;
   border-radius: 24px;
   overflow: hidden;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
@@ -871,6 +896,126 @@ button {
 #health-map {
   width: 100%;
   height: 480px;
+}
+
+/* Lock map in container; prevent overlapping header/sidebar/footer when scrolled */
+.map-wrapper .leaflet-container {
+  z-index: 0;
+}
+
+/* Floating button on map page */
+.floating-btn {
+  position: fixed;
+  top: 88px;
+  right: 24px;
+  z-index: 60;
+  background: linear-gradient(135deg, var(--color-red), var(--color-orange-bright));
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.floating-btn:hover {
+  transform: scale(1.05) translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+}
+
+/* Map toast (custom popup, same color palette) */
+.map-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  padding: 0.9rem 1.4rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--color-red), var(--color-orange-bright));
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 12px 32px rgba(196, 12, 12, 0.35);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  max-width: min(90vw, 360px);
+  text-align: center;
+}
+
+.map-toast.map-toast-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Google Maps info window content */
+.gm-health-info {
+  min-width: 230px;
+  max-width: 260px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(18px);
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  padding: 0.8rem 0.9rem;
+}
+
+.gm-health-actions {
+  margin-top: 0.6rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.gm-nav-btn {
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 0.9rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--color-red), var(--color-orange-bright));
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(196, 12, 12, 0.32);
+}
+
+.gm-nav-btn:hover {
+  box-shadow: 0 14px 32px rgba(196, 12, 12, 0.4);
+}
+
+/* Add-household modal (inside sidebar slot, same position as filters) */
+.modal-panel .modal-content {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.2rem;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.modal-panel .modal-content h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+}
+
+.modal-panel .modal-content input,
+.modal-panel .modal-content select {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0.65rem;
+  font-size: 0.85rem;
+  font-family: inherit;
+}
+
+.modal-panel .modal-actions {
+  margin-top: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
 }
 
 /* Leaflet popup styling */
@@ -1129,6 +1274,10 @@ button {
   gap: 1.2rem;
 }
 
+.team-grid-two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .profile-card {
   background: rgba(255, 255, 255, 0.96);
   border-radius: var(--radius-lg);
@@ -1142,17 +1291,33 @@ button {
   flex-direction: row;
 }
 
+.profile-photo-wrapper {
+  flex-shrink: 0;
+}
+
 .profile-photo {
   width: 64px;
   height: 64px;
   border-radius: 20px;
   background-size: cover;
   background-position: center;
-  flex-shrink: 0;
+  object-fit: cover;
+  display: block;
 }
 
 .placeholder-photo {
   background: linear-gradient(135deg, #ffe1cf, #ffc0a1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-photo-text {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .profile-info h3 {
@@ -1164,6 +1329,13 @@ button {
   margin: 0 0 0.35rem;
   font-size: 0.8rem;
   color: var(--color-orange-earth);
+}
+
+.profile-school {
+  margin: 0;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  line-height: 1.4;
 }
 
 .profile-bio {
@@ -1179,34 +1351,81 @@ button {
   padding-bottom: 2.5rem;
 }
 
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 2rem;
+  margin-top: 1.5rem;
+  align-items: start;
+}
+
 .contact-roles {
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
-  margin-top: 1rem;
 }
 
 .contact-card {
   background: rgba(255, 255, 255, 0.96);
   border-radius: var(--radius-lg);
-  padding: 1rem 1.1rem;
+  padding: 1.2rem 1.2rem;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.07);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.contact-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.09);
 }
 
 .contact-card h2 {
-  margin: 0 0 0.4rem;
+  margin: 0 0 0.5rem;
   font-size: 0.98rem;
+  color: var(--color-text);
 }
 
 .contact-name {
-  margin: 0 0 0.2rem;
+  margin: 0 0 0.3rem;
   font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .contact-detail {
-  margin: 0;
+  margin: 0 0 0.35rem;
   font-size: 0.85rem;
   color: var(--color-muted);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.contact-detail:last-child {
+  margin-bottom: 0;
+}
+
+.contact-detail a {
+  color: var(--color-red);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contact-detail a:hover {
+  color: var(--color-orange-bright);
+  text-decoration: underline;
+}
+
+.contact-icon {
+  flex-shrink: 0;
+}
+
+.contact-note {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.contact-form-wrapper {
+  position: relative;
 }
 
 .contact-form-card {
@@ -1214,6 +1433,7 @@ button {
   background: rgba(255, 255, 255, 0.97);
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.09);
   padding: 1.6rem 1.5rem;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .contact-form-card h2 {
@@ -1226,6 +1446,70 @@ button {
   color: var(--color-muted);
 }
 
+/* Success overlay – smooth animation */
+.contact-success-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(196, 12, 12, 0.95), rgba(255, 101, 0, 0.95));
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.92);
+  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s ease;
+  z-index: 10;
+}
+
+.contact-success-overlay.contact-success-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.contact-success-content {
+  text-align: center;
+  color: #fff;
+  padding: 1.5rem;
+  animation: contactSuccessPop 0.6s ease 0.2s both;
+}
+
+@keyframes contactSuccessPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.contact-success-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.contact-success-content h3 {
+  margin: 0 0 0.4rem;
+  font-size: 1.25rem;
+}
+
+.contact-success-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
 .form-group {
   margin-bottom: 0.95rem;
 }
@@ -1234,6 +1518,10 @@ button {
   display: block;
   font-size: 0.8rem;
   margin-bottom: 0.25rem;
+}
+
+.form-group label .required {
+  color: var(--color-red);
 }
 
 .form-group input,
@@ -1250,6 +1538,13 @@ button {
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
 }
 
+.form-group input.input-error,
+.form-group select.input-error,
+.form-group textarea.input-error {
+  border-color: var(--color-red);
+  box-shadow: 0 0 0 1px rgba(196, 12, 12, 0.25);
+}
+
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -1259,7 +1554,7 @@ button {
 }
 
 .form-error {
-  display: block;
+  display: none;
   margin-top: 0.18rem;
   font-size: 0.75rem;
   color: var(--color-red);
@@ -1269,6 +1564,17 @@ button {
   margin-top: 0.8rem;
   font-size: 0.8rem;
   color: #1c7c3b;
+}
+
+/* Contact layout: stack on small screens */
+@media (max-width: 768px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form-wrapper {
+    min-height: 320px;
+  }
 }
 
 /* ===============================
@@ -1525,7 +1831,8 @@ button {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .team-grid {
+  .team-grid,
+  .team-grid-two {
     grid-template-columns: minmax(0, 1fr);
   }
 
