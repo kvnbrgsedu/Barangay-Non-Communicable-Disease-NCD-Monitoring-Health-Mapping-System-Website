@@ -39,7 +39,7 @@
           <li><a href="dashboard.html" class="active">Dashboard</a></li>
           <li><a href="about.html">About NCDs</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="login.html" class="btn-nav">Login</a></li>
+          <li><button id="logout" class="btn-nav" type="button">Logout</button></li>
         </ul>
       </nav>
     </div>
@@ -145,9 +145,10 @@
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- Main & Dashboard Scripts -->
+  <!-- Main, Auth & Dashboard Scripts -->
   <script src="js/main.js"></script>
-  <script src="js/dashboard.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/dashboard.js"></script>
 </body>
 
 </html>

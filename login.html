@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 
-$body class="page-auth">
+<body class="page-auth">
   <main class="auth-main">
     <div class="auth-bg-shape auth-bg-1"></div>
     <div class="auth-bg-shape auth-bg-2"></div>
@@ -29,7 +29,7 @@ $body class="page-auth">
         <p>Secure access for barangay health staff and authorized users.</p>
       </div>
 
-      <form id="login-form" class="auth-form" novalidate>
+      <form id="loginForm" class="auth-form" novalidate>
         <div class="form-group">
           <label for="login-email">Email Address</label>
           <input type="email" id="login-email" name="email" required />
@@ -57,7 +57,7 @@ $body class="page-auth">
       </form>
 
       <!-- Hidden Registration Form Placeholder (can be expanded later) -->
-      <form id="register-form" class="auth-form auth-form-secondary" hidden novalidate>
+      <form id="registerForm" class="auth-form auth-form-secondary" hidden novalidate>
         <h2>Create Account</h2>
         <div class="form-group">
           <label for="register-email">Email Address</label>
@@ -76,7 +76,7 @@ $body class="page-auth">
       </form>
 
       <!-- Forgot Password Placeholder -->
-      <form id="forgot-form" class="auth-form auth-form-secondary" hidden novalidate>
+      <form id="forgotForm" class="auth-form auth-form-secondary" hidden novalidate>
         <h2>Reset Password</h2>
         <div class="form-group">
           <label for="forgot-email">Email Address</label>
@@ -95,14 +95,9 @@ $body class="page-auth">
     </section>
   </main>
 
-  <!-- Firebase (placeholder - add your config in js/firebase-config.js) -->
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-
   <!-- Main & Auth Scripts -->
   <script src="js/main.js"></script>
-  <script src="js/firebase-config.js"></script>
-  <script src="js/auth.js"></script>
+  <script type="module" src="js/auth.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,45 @@
+type User @table {
+  username: String!
+  passwordHash: String!
+  role: String!
+  createdAt: Timestamp!
+  displayName: String
+  email: String
+}
+
+type Resident @table {
+  firstName: String!
+  lastName: String!
+  birthDate: Date!
+  address: String!
+  barangayId: String!
+  createdAt: Timestamp!
+  middleName: String
+  gender: String
+  contactNumber: String
+  email: String
+}
+
+type NCDType @table {
+  name: String!
+  description: String
+}
+
+type Diagnosis @table {
+  resident: Resident!
+  ncdType: NCDType!
+  diagnosisDate: Date!
+  status: String!
+  createdAt: Timestamp!
+  notes: String
+}
+
+type HealthEvent @table {
+  resident: Resident!
+  logger: User
+  eventType: String!
+  eventDate: Date!
+  createdAt: Timestamp!
+  details: String
+  outcome: String
+}

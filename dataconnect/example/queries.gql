@@ -1,0 +1,7 @@
+query ListNCDTypes @auth(level: PUBLIC, insecureReason: "This operation is safe to expose to the public as it lists general NCD types.") {
+  nCDTypes {
+    id
+    name
+    description
+  }
+}

@@ -1,0 +1,105 @@
+mutation SeedDatabase @transaction @auth(level: USER, insecureReason: "This mutation is for seeding data and should only be run by authenticated users.") {
+  nCDType_upsertMany(data: [
+    {
+      id: "b2d3e4f5-a1b2-c3d4-e5f6-7890abcdeff1",
+      name: "Hypertension",
+      description: "High blood pressure"
+    },
+    {
+      id: "b2d3e4f5-a1b2-c3d4-e5f6-7890abcdeff2",
+      name: "Diabetes Mellitus",
+      description: "Chronic disease affecting how your body turns food into energy"
+    },
+    {
+      id: "b2d3e4f5-a1b2-c3d4-e5f6-7890abcdeff3",
+      name: "Asthma",
+      description: "A condition in which your airways narrow and swell"
+    }
+  ])
+  user_upsertMany(data: [
+    {
+      id: "a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67891",
+      username: "adminuser",
+      passwordHash: "hashedpassword1",
+      role: "admin",
+      displayName: "Admin User",
+      email: "admin@example.com",
+      createdAt_expr: "request.time"
+    },
+    {
+      id: "a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67892",
+      username: "healthworker",
+      passwordHash: "hashedpassword2",
+      role: "health_worker",
+      displayName: "Health Worker",
+      email: "worker@example.com",
+      createdAt_expr: "request.time"
+    }
+  ])
+  resident_upsertMany(data: [
+    {
+      id: "f1e2d3c4-b5a6-7890-1234-56789abcdef1",
+      firstName: "Juan",
+      lastName: "Dela Cruz",
+      middleName: "Santos",
+      birthDate: "1980-01-15",
+      address: "123 Main St, Barangay A",
+      barangayId: "BA001",
+      createdAt_expr: "request.time",
+      gender: "Male",
+      contactNumber: "09171234567",
+      email: "juan.delacruz@example.com"
+    },
+    {
+      id: "f1e2d3c4-b5a6-7890-1234-56789abcdef2",
+      firstName: "Maria",
+      lastName: "Santos",
+      middleName: "Reyes",
+      birthDate: "1975-05-20",
+      address: "456 Elm St, Barangay A",
+      barangayId: "BA001",
+      createdAt_expr: "request.time",
+      gender: "Female",
+      contactNumber: "09187654321",
+      email: "maria.santos@example.com"
+    }
+  ])
+  diagnosis_upsertMany(data: [
+    {
+      residentId: "f1e2d3c4-b5a6-7890-1234-56789abcdef1",
+      ncdTypeId: "b2d3e4f5-a1b2-c3d4-e5f6-7890abcdeff1",
+      diagnosisDate: "2022-03-10",
+      status: "Active",
+      createdAt_expr: "request.time",
+      notes: "Initial diagnosis, advised lifestyle changes."
+    },
+    {
+      residentId: "f1e2d3c4-b5a6-7890-1234-56789abcdef2",
+      ncdTypeId: "b2d3e4f5-a1b2-c3d4-e5f6-7890abcdeff2",
+      diagnosisDate: "2021-11-01",
+      status: "Controlled",
+      createdAt_expr: "request.time",
+      notes: "On medication, regular check-ups."
+    }
+  ])
+  healthEvent_upsertMany(data: [
+    {
+      residentId: "f1e2d3c4-b5a6-7890-1234-56789abcdef1",
+      loggerId: "a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67892",
+      eventType: "Blood Pressure Reading",
+      eventDate: "2023-10-26",
+      createdAt_expr: "request.time",
+      details: "BP: 140/90 mmHg",
+      outcome: "High"
+    },
+    {
+      residentId: "f1e2d3c4-b5a6-7890-1234-56789abcdef2",
+      loggerId: "a1b2c3d4-e5f6-7890-a1b2-c3d4e5f67892",
+      eventType: "Glucose Test",
+      eventDate: "2023-10-25",
+      createdAt_expr: "request.time",
+      details: "Fasting blood sugar: 130 mg/dL",
+      outcome: "Elevated"
+    }
+  ])
+}
